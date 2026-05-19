@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Crea tu Raku</title>
+  <link rel="icon" href="assets/img/favicon/favicon.png" type="image/png">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <div id="intro" class="intro-overlay">
+    <video id="introVideo" autoplay muted playsinline>
+      <source src="assets/intro.mp4" type="video/mp4">
+      Tu navegador no soporta vídeo.
+    </video>
+    <img src="assets/img/rakuten_logo.png" alt="Rakuten" class="rakuten-logo">
+  </div>
+  <div id="app" class="app hidden">
+    <header class="hero">
+      <h1 class="title">¡Personaliza tu Raku!</h1>
+      <p class="subtitle">Crea tu avatar de perfil personalizando a Raku</p>
+      <img src="assets/img/rakuten_logo.png" alt="Rakuten" class="rakuten-top">
+    </header>
+
+    <div class="container">
+      <main class="preview">
+        <div class="raku-wrap">
+          <img id="raku" src="assets/img/raku_magenta.png" alt="Raku" class="raku-image">
+          <div id="accessoryLayer" class="accessory-layer"></div>
+        </div>
+      </main>
+
+      <aside class="panel">
+        <section class="panel-section colors">
+          <h3>Selecciona el color de Raku</h3>
+          <div class="color-list" id="colorList">
+            <button class="color-item active" data-color="magenta" title="Magenta">
+              <img src="assets/img/magenta.png" alt="magenta">
+            </button>
+            <button class="color-item" data-color="azul" title="Azul">
+              <img src="assets/img/azul.png" alt="azul">
+            </button>
+            <button class="color-item" data-color="amarillo" title="Amarillo">
+              <img src="assets/img/amarillo.png" alt="amarillo">
+            </button>
+            <button class="color-item" data-color="cielo" title="Cielo">
+              <img src="assets/img/cielo.png" alt="cielo">
+            </button>
+            <button class="color-item" data-color="aqua" title="Aqua">
+              <img src="assets/img/aqua.png" alt="aqua">
+            </button>
+            <button class="color-item" data-color="naranja" title="Naranja">
+              <img src="assets/img/naranja.png" alt="naranja">
+            </button>
+          </div>
+        </section>
+
+        <section class="panel-section addons">
+          <h3>Complementos de Raku</h3>
+          <div class="addon-list" id="addonList">
+            <button class="addon-item" data-addon="gorra" title="Gorra">
+              <img src="assets/img/gorra.png" alt="gorra">
+            </button>
+            <button class="addon-item" data-addon="sombrero" title="Sombrero">
+              <img src="assets/img/sombrero.png" alt="sombrero">
+            </button>
+            <button class="addon-item" data-addon="pestanas" title="Pestañas">
+              <img src="assets/img/pestanas.png" alt="pestanas">
+            </button>
+            <button class="addon-item" data-addon="pajarita" title="Pajarita">
+              <img src="assets/img/pajarita.png" alt="pajarita">
+            </button>
+          </div>
+        </section>
+
+        <section class="panel-section background">
+          <h3>Color de fondo</h3>
+          <div class="bg-list" id="bgList"></div>
+        </section>
+
+        <div class="finalize-wrap">
+          <button id="finalizeBtn" class="finalize-btn" title="Guardar" aria-label="Guardar">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M4 12L10 18L20 6" stroke="#111" stroke-width="2.2" stroke-linecap="square" stroke-linejoin="miter" />
+            </svg>
+          </button>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="site-footer">© 2026 • Rakuten TV</footer>
+  </div>
+
+  <script src="assets/app/main.js"></script>
+</body>
+</html>
