@@ -121,7 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function applyBackground(colors) {
         const backgroundColor = getBackgroundColor(colors);
-        document.documentElement.style.setProperty('--page-bg', backgroundColor);
         document.documentElement.style.setProperty('--main-bg', backgroundColor);
         const textLight = brightness(colors.light) > 180;
         document.documentElement.style.setProperty('--text-main', textLight ? '#111' : '#fff');

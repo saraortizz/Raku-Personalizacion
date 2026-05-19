@@ -1,7 +1,6 @@
 @use 'partials/fonts';
 
 :root {
-  --page-bg: #000;
   --main-bg: #000;
   --panel-bg: #000;
   --text-main: #fff;
@@ -17,12 +16,12 @@
 html,
 body {
   height: 100%;
+  background: #000;
 }
 
 body {
   margin: 0;
   font-family: 'Stupid Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-  background: var(--page-bg);
   color: var(--text-main);
 }
 
@@ -61,6 +60,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: #000;
 }
 
 
@@ -146,6 +146,8 @@ body {
   position: absolute;
   pointer-events: none;
   height: auto;
+  display: block;
+  max-width: none;
   opacity: 1;
   transition: opacity .18s ease;
 }
@@ -366,7 +368,8 @@ body {
   }
 
   .raku-image {
-    height: min(22vh, 178px);
+    width: clamp(170px, 72vw, 220px);
+    height: auto;
   }
 
   .panel {
