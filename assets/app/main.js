@@ -47,12 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function applyAddonPlacement(img, name) {
         const p = getAddonPlacement(name);
-        // Usamos porcentajes CSS puros relativos al raku-wrap.
-        // En Safari iOS los porcentajes en position:absolute son relativos
-        // al containing block (raku-wrap), que es correcto.
-        // Evitamos cualquier cálculo con getBoundingClientRect aquí
-        // porque en dispositivos reales puede haber discrepancias con
-        // el zoom de accesibilidad del sistema y la barra de Safari.
+        
         img.style.width = p.width;
         img.style.left = p.left;
         img.style.top = p.top;
@@ -65,17 +60,12 @@ document.addEventListener('DOMContentLoaded', () => {
         img.style.position = 'absolute';
         img.style.height = 'auto';
         img.style.pointerEvents = 'none';
-        // Aplicamos el posicionamiento ANTES de añadir al DOM
-        // para que Safari no haga un layout intermedio sin posición
+      
         applyAddonPlacement(img, name);
         accessoryLayer.appendChild(img);
-        // Asignamos src después para que el onload dispare
-        // con el elemento ya en el DOM y con su posición definida.
-        // Esto evita el "salto" en Safari iOS real cuando el img
-        // se redimensiona al cargarse.
+       
         img.onload = () => {
-            // Re-aplicamos el posicionamiento tras cargar para corregir
-            // cualquier recalculo que Safari haya hecho durante la carga
+            
             applyAddonPlacement(img, name);
         };
         img.src = `assets/img/${addonFile[name]}`;
