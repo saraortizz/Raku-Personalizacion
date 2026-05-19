@@ -17,12 +17,17 @@ html,
 body {
   height: 100%;
   background: #000;
+  // Evita que Safari extienda el color de fondo en el área de rebote (overscroll)
+  overscroll-behavior: none;
 }
 
 body {
   margin: 0;
   font-family: 'Stupid Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
   color: var(--text-main);
+  // Safari iOS: fija el fondo del body para que el área de overscroll
+  // no tome el color del .container al hacer scroll
+  background: #000;
 }
 
 
@@ -58,6 +63,8 @@ body {
 
 .app {
   min-height: 100vh;
+  // En Safari iOS, -webkit-fill-available es el alto real sin la barra del browser
+  min-height: -webkit-fill-available;
   display: flex;
   flex-direction: column;
   background: #000;
@@ -65,11 +72,15 @@ body {
 
 
 .hero {
-  background: #000;
+  // Fijo en negro: nunca hereda --main-bg del .container para evitar
+  // que Safari "filtre" el color de fondo hacia el área de rebote superior
+  background: #000 !important;
   padding: 48px 24px 12px 24px;
   text-align: center;
   border-bottom: 1px solid rgba(255, 255, 255, .04);
   position: relative;
+  // Aísla el contexto de apilamiento para Safari
+  isolation: isolate;
 }
 
 .title {
@@ -270,8 +281,12 @@ body {
 
 .site-footer {
   padding: 12px 24px;
+  // Añadimos safe-area para iPhones con notch/Dynamic Island
+  padding-bottom: calc(12px + env(safe-area-inset-bottom));
   text-align: center;
-  background: #000;
+  // Fijo en negro: nunca hereda --main-bg para evitar que Safari
+  // "filtre" el color de fondo hacia el área de rebote inferior
+  background: #000 !important;
   color: #d8d8d8;
   font-size: 13px;
 }
